@@ -70,3 +70,12 @@
 0:0:0:0:0:0:0:1 - - [26/May/2022:02:05:37 +0530] "GET /Grocery/pages/ProductPagePopup/script.js HTTP/1.1" 200 8816
 0:0:0:0:0:0:0:1 - - [26/May/2022:02:07:11 +0530] "GET /Grocery/index.jsp HTTP/1.1" 200 20711
 0:0:0:0:0:0:0:1 - - [26/May/2022:02:07:11 +0530] "GET /Grocery/pages/Login%20Page/index.jsp HTTP/1.1" 200 2077
+127.0.0.1 - - [26/May/2022:02:08:07 +0530] "GET / HTTP/1.1" 404 752
+0:0:0:0:0:0:0:1 - - [26/May/2022:03:01:06 +0530] "GET /Grocery/index.jsp HTTP/1.1" 200 20711
+0:0:0:0:0:0:0:1 - - [26/May/2022:03:01:06 +0530] "GET /Grocery/pages/Login%20Page/index.jsp HTTP/1.1" 200 2077
+0:0:0:0:0:0:0:1 - - [26/May/2022:03:01:11 +0530] "GET /Grocery/pages/ShopingListPage/index.jsp?c=Essential&s=Dals%20And%20Pulse&q=Dals%20And%20Pulse HTTP/1.1" 200 17290
+0:0:0:0:0:0:0:1 - - [26/May/2022:03:01:11 +0530] "GET /Grocery/pages/ShopingListPage/script.js HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [26/May/2022:03:01:11 +0530] "GET /Grocery/pages/Login%20Page/index.jsp HTTP/1.1" 200 2077
+0:0:0:0:0:0:0:1 - - [26/May/2022:03:01:11 +0530] "GET /Grocery/pages/ProductPagePopup/productPopup.jsp HTTP/1.1" 200 781
+0:0:0:0:0:0:0:1 - - [26/May/2022:03:01:11 +0530] "GET /Grocery/pages/ProductPagePopup/script.js HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [26/May/2022:03:01:12 +0530] "GET /Grocery/pages/ProductPagePopup/productPopup.jsp?pid=1 HTTP/1.1" 200 1241
