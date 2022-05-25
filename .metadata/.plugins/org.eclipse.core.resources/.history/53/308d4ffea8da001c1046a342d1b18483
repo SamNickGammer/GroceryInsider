@@ -1,0 +1,7 @@
+<%@ page import="java.sql.*, java.io.*" %>
+<jsp:useBean id="obj" class="groceryDatabase.DB"></jsp:useBean>
+<%! Connection conn=null;%>
+<% 
+	obj.register(phoneNo, pass, firstName, lastName);
+	obj.login(phoneNo, pass);
+%>

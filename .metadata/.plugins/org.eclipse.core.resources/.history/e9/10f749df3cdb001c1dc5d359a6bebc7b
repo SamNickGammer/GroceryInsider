@@ -1,0 +1,56 @@
+    <%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="ISO-8859-1"%>
+    <%@ page import="java.sql.*, java.io.*" %>
+<jsp:useBean id="obj" class="groceryDatabase.DB"></jsp:useBean>
+<%! Connection conn=null;%>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title></title>
+</head>
+<body>
+	<%
+		String loginStatus = null;
+		String name = null;
+		String phoneNumber =null;
+		String password = null;
+	try{
+		name = request.getParameter("nameFull");
+		phoneNumber = request.getParameter("phoneNumber");
+		password = request.getParameter("password");
+		out.println("x::"+name+"::x");
+		if (name == null){
+			loginStatus = obj.login(phoneNumber, password);
+		}else{
+			out.println("FuckYou JSP");
+		}
+		
+	}catch(Exception e){out.println("<h1>register unsuccessfully");} %>
+</body>
+<script>
+	const loginStatus = <%=loginStatus%>;
+	const name = "<%=name%>";
+	const phoneNumber = <%=phoneNumber%>;
+	const password = "<%=password%>";
+	if(loginStatus == "Login Success"){
+		console.log("sucess");
+		localStorage.setItem(
+			    'userDetails',
+			    JSON.stringify({
+			      phone: phoneNumber,
+			      password: password,
+			    })
+			  );
+	}else if(loginStatus == "Wrong Password"){
+		console.log("Wrong Pass");
+		
+	}else if(loginStatus == "Account not found"){
+		console.log("NotFound");
+		
+	}else{
+		console.log("Another Error");
+	}
+</script>
+</html>

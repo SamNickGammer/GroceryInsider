@@ -1,0 +1,19 @@
+const profilePopupIFrame = document.querySelector('.profilePopupIFrame');
+const userAccountImage = document.querySelector('.userAccountImage');
+const overlay = document.querySelector('.overlay');
+const productIFrame = document.querySelector('.productIFrame');
+
+userAccountImage.addEventListener('click', (e) => {
+  if (localStorage.getItem('userDetails')) {
+    //window.location.href = `../../pages/UserProfile/index.jsp`;
+    console.log(window.location)
+  } else {
+    profilePopupIFrame.style.display = 'block';
+    overlay.style.display = 'block';
+    document.body.classList.add('stop-scrolling');
+  }
+});
+
+window.addEventListener("storage",(e)=>{
+	console.log("storage Change",e);
+})

@@ -1,0 +1,10 @@
+ratingStars = document.querySelectorAll('.ratingStars');
+ratingMask = document.querySelector('#ratingMask');
+function setRating(n){
+    rating = 5-n;
+    console.log(rating*26.6);
+    ratingMask.style.width = (rating*26.6) + "px";
+    ratingMask.style.left = (752 + (133 -  rating*26.6)) + "px";
+}
+
+setRating(4.4)

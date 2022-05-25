@@ -1,0 +1,265 @@
+
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="ISO-8859-1"%>
+    <%@ page import="java.sql.*, java.io.*" %>
+<jsp:useBean id="obj" class="groceryDatabase.DB"></jsp:useBean>
+<%! Connection conn=null;%>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="../../assets/CSS/popupStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="displayFlexCont">
+            <div class="navBarContainer">
+                <section class="header navbar">
+                    <div class="logoName" onclick="window.location.href = '../../index.jsp';">
+                        <div class="logoSVG">
+                            <img src="../../assets/icons/Logo (2).svg" alt="">
+                        </div>
+                        <div class="logoTXT">The Grocery Store</div>
+                    </div>
+                    <div class="searchAndLocation">
+                        <div class="searchBarCont">
+                            <input type="text" class="searchBar" placeholder="Search" onkeydown="event.key == 'Enter'? window.location.href = 'index.jsp?q='+this.value:''">
+                            <i class="fas fa-search searchIcon"></i>
+                        </div>
+                    </div>
+                    <div class="userAccountAndCart">
+                        <div class="cartImage">
+                            <img src="../../assets/icons/cart.svg" alt="icon" class="cartIcon">
+                            <h4 class="color_white mobile_disable">Cart</h4>
+                        </div>
+                        <div class="userAccountImage">
+                            <i class="fa-regular fa-user"></i>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="bodyContainer">
+                <div class="bodyContFlex">
+                    <div class="sideBar padding0 scrollCont">
+                        <div class="sideBarBody">
+                        </div>
+                        <div class="filterData">
+                            <div class="filterTitle">Filter</div>
+                            <hr />
+                            <div class="brand">
+                                <div class="brandTitle">
+                                    <span>brand</span>
+                                    <span>
+                                        <img src="../../assets/icons/arrow-down-sign-to-navigate.png" alt="">
+                                    </span>
+                                </div>
+                                <div class="filterName">
+                                    <div class="singleFilter">
+                                        <input type="checkbox" id="brand1" name="brand" value="brand1">
+                                        <label for="brand1">
+                                            <span>24 Mantra</span>
+                                        </label>
+                                    </div>
+                                    <div class="singleFilter">
+                                        <input type="checkbox" id="brand1" name="brand" value="brand1">
+                                        <label for="brand1">
+                                            <span>24 Mantra</span>
+                                        </label>
+                                    </div>
+                                    <div class="singleFilter">
+                                        <input type="checkbox" id="brand1" name="brand" value="brand1">
+                                        <label for="brand1">
+                                            <span>24 Mantra</span>
+                                        </label>
+                                    </div>
+                                    <div class="singleFilter">
+                                        <input type="checkbox" id="brand1" name="brand" value="brand1">
+                                        <label for="brand1">
+                                            <span>24 Mantra</span>
+                                        </label>
+                                    </div>
+                                    <div class="singleFilter">
+                                        <input type="checkbox" id="brand1" name="brand" value="brand1">
+                                        <label for="brand1">
+                                            <span>24 Mantra</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr />
+                            <div class="brand">
+                                <div class="brandTitle">
+                                    <span>CUSTOMER RATINGS</span>
+                                    <span>
+                                        <img src="../../assets/icons/arrow-down-sign-to-navigate.png" alt="">
+                                    </span>
+                                </div>
+                                <div class="filterName">
+                                    <div class="singleFilter">
+                                        <input type="checkbox" id="brand1" name="brand" value="brand1">
+                                        <label for="brand1">
+                                            <span>4★ & Above</span>
+                                        </label>
+                                    </div>
+                                    <div class="singleFilter">
+                                        <input type="checkbox" id="brand1" name="brand" value="brand1">
+                                        <label for="brand1">
+                                            <span>3★ & Above</span>
+                                        </label>
+                                    </div>
+                                    <div class="singleFilter">
+                                        <input type="checkbox" id="brand1" name="brand" value="brand1">
+                                        <label for="brand1">
+                                            <span>2★ & Above</span>
+                                        </label>
+                                    </div>
+                                    <div class="singleFilter">
+                                        <input type="checkbox" id="brand1" name="brand" value="brand1">
+                                        <label for="brand1">
+                                            <span>1★ & Above</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr />
+                            <div class="brand">
+                                <div class="brandTitle">
+                                    <span>DISCOUNT</span>
+                                    <span>
+                                        <img src="../../assets/icons/arrow-down-sign-to-navigate.png" alt="">
+                                    </span>
+                                </div>
+                                <div class="filterName">
+                                    <div class="singleFilter">
+                                        <input type="checkbox" id="brand1" name="brand" value="brand1">
+                                        <label for="brand1">
+                                            <span>50% or more</span>
+                                        </label>
+                                    </div>
+                                    <div class="singleFilter">
+                                        <input type="checkbox" id="brand1" name="brand" value="brand1">
+                                        <label for="brand1">
+                                            <span>40% or more</span>
+                                        </label>
+                                    </div>
+                                    <div class="singleFilter">
+                                        <input type="checkbox" id="brand1" name="brand" value="brand1">
+                                        <label for="brand1">
+                                            <span>30% or more</span>
+                                        </label>
+                                    </div>
+                                    <div class="singleFilter">
+                                        <input type="checkbox" id="brand1" name="brand" value="brand1">
+                                        <label for="brand1">
+                                            <span>20% or more</span>
+                                        </label>
+                                    </div>
+                                    <div class="singleFilter">
+                                        <input type="checkbox" id="brand1" name="brand" value="brand1">
+                                        <label for="brand1">
+                                            <span>10% or more</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bodyMain">
+                    <div class="bodyFlexMain">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="cartModel" class="cartModel">
+        <div class="modal-content">
+            <div class="modelData">
+                <div class="titleModel">
+                    <div class="modelTitleFirst">
+                        <h2>My Cart</h2>
+                        <span class="closeModelCart">
+                            <img src="../../assets/icons/right-arrow.png" alt="">
+                        </span>
+                    </div>
+                    <hr width="100%" style="background-color: #000;">
+                    <div class="modelTitleSecond">
+                        <h4>Delivery In 26 Minutes.</h4>
+                    </div>
+                </div>
+                <div class="itemBody">
+                    <div class="itemDetails">
+                    </div>
+                    <div class="billDetails">
+                        <div class="billDetailsExt">
+                            <h3>Bill Details</h3>
+                            <h6>
+                                <span>MRP</span>
+                                <span>0</span>
+                            </h6>
+                            <h6>
+                                <span>Total Discount</span>
+                                <span>0</span>
+                            </h6>
+                            <h6>
+                                <span>Packing Charges</span>
+                                <span>0</span>
+                            </h6>
+                            <h6>
+                                <span>Delivery Charges</span>
+                                <span>0</span>
+                            </h6>
+                            <h6>
+                                <span>Total</span>
+                                <span>0</span>
+                            </h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="billPrice">
+                    <button class="payButton">
+                        <h2>2 items . 859 146 Proceed</h2>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="overlay"></div>
+    <iframe class="profilePopupIFrame" src="../../pages/Login Page/index.jsp" frameborder="0"></iframe>
+    <iframe class="productIFrame" src="../ProductPagePopup/productPopup.html" frameborder="0"></iframe>
+
+		<%
+			String querySearch = request.getParameter("q");
+			String category = request.getParameter("c");
+			String subCategory = request.getParameter("s");
+			String strb = null;
+			if(querySearch != null){
+				strb = obj.getProducts(null, null, querySearch, null);
+			}
+			if(category != null){
+				strb = obj.getProducts(category, subCategory, null, null);
+			}
+		%>
+		<script>
+			var data = <%=strb%>
+			console.log("data",data)
+		</script>
+    <script src="../../localDatabase.js"></script>
+    <script src="../../assets/JS/loginPopupFrame.js"></script>
+    <script src="../../script.js"></script>
+    <script src="./script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,75 @@
+    <%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="ISO-8859-1"%>
+    <%@ page import="java.sql.*, java.io.*" %>
+<jsp:useBean id="obj" class="groceryDatabase.DB"></jsp:useBean>
+<%! Connection conn=null;%>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title></title>
+</head>
+<body>
+	<%
+		String loginStatus = null;
+		String name = null;
+		String phoneNumber =null;
+		String password = null;
+		String registerStatus = null;
+		String errorMsg = null;
+	try{
+		name = request.getParameter("nameFull");
+		phoneNumber = request.getParameter("phoneNumber");
+		password = request.getParameter("password");
+		if (name == ""){
+			loginStatus = obj.login(phoneNumber, password);
+		}else{
+			String[] nameParts = name.split(" ");
+			String first_name = "";
+			for(String a: nameParts){
+				first_name += a + " ";
+			}
+			
+			registerStatus = obj.register(phoneNumber, password, first_name.trim(), nameParts[nameParts.length-1]);
+		}
+		
+	}catch(Exception e){
+		errorMsg = e.getMessage();
+	} %>
+</body>
+<script>
+	const loginStatus = "<%=loginStatus%>";
+	const name = "<%=name%>";
+	const phoneNumber = "<%=phoneNumber%>";
+	const password = "<%=password%>";
+	const errorMsg = "<%=errorMsg%>";
+	if(name == ""){
+		if(loginStatus == "Login Success"){
+			console.log("sucess");
+			localStorage.setItem(
+				    'userDetails',
+				    JSON.stringify({
+				      phone: phoneNumber,
+				      password: password,
+				    })
+				  );
+		}else if(loginStatus == "Wrong Password"){
+			console.log("Wrong Pass");
+			
+		}else if(loginStatus == "Account not found"){
+			console.log("NotFound");
+			
+		}else{
+			console.log(errorMsg);
+		}
+	}else{
+		const registered = <%=registerStatus%>;
+		if(register){
+			console.log("Registered Successfully.")
+		}else{
+			console.log(errorMsg)
+		}
+	}
+</script>
+</html>

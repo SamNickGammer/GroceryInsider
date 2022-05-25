@@ -1,0 +1,164 @@
+@font-face {
+  font-family: Segoe UI Semibold;
+  src: url('fonts/SEGUISB.TTF');
+}
+
+@font-face {
+  font-family: Segoe UI Bold;
+  src: url('fonts/SEGOEUIB.TTF');
+}
+
+@font-face {
+  font-family: Segoe UI Regular;
+  src: url('fonts/SEGOEUI.TTF');
+}
+
+:root {
+  --regular-color: #ffffff;
+  --gray-f0: #f0f0f0;
+  --gray-d: #ddd;
+  --gray-9b: #9b9b9b;
+  --gray-1b: #1b1b1b;
+  --yello-ff: #ffeb78;
+  --regular-font: 'Segoe UI', sans-serif;
+  --regular-font-weight: 500;
+  --regular-border-radius: 0.25rem;
+  --hover-list-color: #3eb05c;
+  --font-cursive: 'Avocado Creamy', sans-serif;
+  --main-theme-background-color: #009126;
+}
+
+@import url('http://fonts.cdnfonts.com/css/segoe-ui-variable');
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0%;
+  padding: 0%;
+  height: 100vh;
+  width: 100vw;
+  /* background-color: rgb(0, 0, 0); */
+}
+
+.background {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loginPopup {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  background-color: white;
+  width: 450px;
+  height: 480px;
+  padding: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 2px 0px 0px 2px;
+}
+
+.termsCondTxt {
+  color: var(--gray-9b);
+  margin-bottom: 10px;
+}
+
+.sub-container {
+  padding: 40px;
+  background-color: #009126;
+  width: 300px;
+  height: 520px;
+  border-radius: 0px 2px 2px 0px;
+}
+
+.loginBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: large;
+  font-family: 'Segoe UI';
+  font-weight: 500;
+  background-color: #009126;
+  border: none;
+  border-radius: 3px;
+  height: 45px;
+  width: 100%;
+}
+
+.loginBtn:hover {
+  cursor: pointer;
+  background-color: #007720;
+}
+
+form {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+input {
+  width: 100%;
+  height: 40px;
+  margin: 0px 0px 25px 0px;
+  border: 1px solid #707070;
+  border-radius: 3px;
+  font-size: 17px;
+  padding-left: 5px;
+}
+
+a {
+  text-decoration: none;
+  color: blue;
+}
+
+.subConText {
+  color: white;
+}
+
+.loginTxt {
+  font-size: 35px;
+  font-family: 'Segoe UI';
+  font-weight: 700;
+  margin-top: 30px;
+}
+
+.mText {
+  display: flex;
+  width: 100%;
+  font-family: 'Segoe UI';
+  margin-bottom: 3px;
+}
+
+.new_acc_text {
+  text-decoration: none;
+  color: blue;
+  user-select: none;
+}
+
+.new_acc_text:hover {
+  cursor: pointer;
+  color: rgb(0, 0, 152);
+}
+
+.beautifuTxt {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.loginImg {
+  position: relative;
+  left: -28px;
+  height: 78%;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+}

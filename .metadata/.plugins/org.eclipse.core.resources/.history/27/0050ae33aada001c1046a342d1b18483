@@ -1,0 +1,12 @@
+<%@ page import="java.sql.*, java.io.*" %>
+<jsp:useBean id="obj" class="groceryDatabase.DB"></jsp:useBean>
+<%! Connection conn=null;%>
+<% 
+	obj.getProducts(Category, Subcategory, search, productID)
+%>
+<script language="javascript">
+	var category = "Essential"
+	window.location.replace = "index.jsp?category=" + category
+	var str = <%=db.getProducts(request.getParameter("category"),"Dals And Pulse", null, null)%>
+	console.log(str)
+</script>

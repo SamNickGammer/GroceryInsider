@@ -1,0 +1,22 @@
+    <%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="ISO-8859-1"%>
+    <%@ page import="java.sql.*, java.io.*" %>
+<jsp:useBean id="obj" class="groceryDatabase.DB"></jsp:useBean>
+<%! Connection conn=null;%>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title></title>
+</head>
+<body>
+	<%try{
+		String name = request.getParameter("nameFull");
+		String phoneNumber = request.getParameter("phoneNumber");
+		String password = request.getParameter("password");
+		
+		out.print(name);
+	}catch(Exception e){out.println("<h1>register unsuccessfully");} %>
+</body>
+</html>
