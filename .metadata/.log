@@ -1872,3 +1872,30 @@ org.eclipse.swt.SWTException: Unable to get property 'scrollWidth' of undefined 
 
 !ENTRY org.eclipse.lsp4e 1 0 2022-05-25 15:08:46.080
 !MESSAGE [Info]	ESLint server running in node v16.9.0
+
+!ENTRY org.eclipse.lsp4e 1 0 2022-05-25 18:46:03.899
+!MESSAGE [Info]	ESLint server running in node v16.9.0
+
+!ENTRY org.eclipse.lsp4e 1 0 2022-05-25 18:47:31.338
+!MESSAGE [Info]	ESLint server running in node v16.9.0
+
+!ENTRY org.eclipse.lsp4e 1 0 2022-05-25 19:41:22.465
+!MESSAGE [Info]	ESLint server running in node v16.9.0
+
+!ENTRY org.eclipse.lsp4e 1 0 2022-05-26 00:04:24.013
+!MESSAGE [Info]	ESLint server running in node v16.9.0
+
+!ENTRY org.eclipse.wst.server.core 4 0 2022-05-26 02:00:00.204
+!MESSAGE Server Tomcat v10.0 Server at localhost failed to start.
+
+!ENTRY org.eclipse.wst.server.core 4 0 2022-05-26 02:00:42.953
+!MESSAGE Server Tomcat v10.0 Server at localhost failed to start.
+
+!ENTRY org.eclipse.wst.server.core 4 0 2022-05-26 02:01:16.359
+!MESSAGE Server Tomcat v10.0 Server at localhost failed to start.
+
+!ENTRY org.eclipse.wst.server.core 4 0 2022-05-26 02:01:45.689
+!MESSAGE Server Tomcat v10.0 Server at localhost failed to start.
+
+!ENTRY org.eclipse.jst.server.tomcat.core 4 0 2022-05-26 02:02:51.499
+!MESSAGE Port 8080 required by Tomcat v10.0 Server at localhost (2) is already in use. The server may already be running in another process, or a system process may be using the port. To start this server you will need to stop the other process or change the port number(s).

@@ -31,12 +31,16 @@ public class DB {
 				} else {
 					return "Wrong Password";
 				}
+				
 			} catch (SQLException e) {
 				return "Account not found";
+			}finally {
+				st.close();
 			}
+			
 		} catch (Exception e) {
 			return "Error occured: " + e.getMessage().trim();
-		}
+		} 
 	}
 	
 	public String register(String phoneNo, String pass, String firstName, String lastName) {
@@ -44,6 +48,7 @@ public class DB {
 			Statement st = conn.createStatement();
 			String query = "insert into allusers(phoneNo, password, firstName, lastName) values('%s','%s','%s','%s')";
 			st.executeUpdate(query.formatted(phoneNo, pass, firstName, lastName));
+			st.close();
 			return "registration successul";
 		} catch (Exception e) {
 			return e.getLocalizedMessage().trim();
@@ -88,6 +93,8 @@ public class DB {
 				list.add(map);
 			}
 			String json =list.toString().replaceAll("=", ":"); 
+			
+			st.close();
 			return json;
 			
 			
@@ -102,6 +109,7 @@ public class DB {
 			Statement st = conn.createStatement();
 			String query = "insert into cart values ('%s', '%s', '%s')";
 			st.executeUpdate(query.formatted(phoneNo, productID, quantity));
+			st.close();
 		} catch (Exception e) {
 			System.out.println(e.toString());
 		}
@@ -112,6 +120,7 @@ public class DB {
 			Statement st = conn.createStatement();
 			String query = "delete from cart where phoneno='%s' and productid='%s'";
 			st.executeUpdate(query.formatted(phoneNo, productID));
+			st.close();
 		} catch (Exception e) {
 			System.out.println(e.toString());
 		}
@@ -130,6 +139,7 @@ public class DB {
 				list.add(map);
 			}
 			String json =list.toString().replaceAll("=", ":"); 
+			st.close();
 			return json;
 		} catch (Exception e) {
 			System.out.println(e.toString());
@@ -137,30 +147,21 @@ public class DB {
 		}
 	}
 	
-	public void orderAdd(String phoneNo, String productID, String quantity, String date) {
-		try {
-			Statement st = conn.createStatement();
-			String query = "insert into orders values ('%s', '%s', '%s', '%s')";
-			st.executeUpdate(query.formatted(phoneNo, productID, quantity, date));
-		} catch (Exception e) {
-			System.out.println(e.toString());
-		}
-	}
 	
 	public void orderRemove(String phoneNo, String productID) {
 		try {
 			Statement st = conn.createStatement();
 			String query = "delete from orders where phoneno='%s' and productid='%s'";
 			st.executeUpdate(query.formatted(phoneNo, productID));
+			st.close();
 		} catch (Exception e) {
 			System.out.println(e.toString());
 		}
 	}
-	
 	public String ordersGet(String phoneNo) {
 		try {
 			Statement st = conn.createStatement();
-			String query = "select productid, quantity, dop from orders where phoneno='%s'";
+			String query = "select productid, quantity, dop, status from orders where phoneno='%s'";
 			ResultSet rs = st.executeQuery(query.formatted(phoneNo));
 			List<Map<String, String>> list = new ArrayList<Map<String, String>>();
 			while (rs.next()) {
@@ -168,6 +169,7 @@ public class DB {
 				map.put("\"productID\"", '"' + rs.getString(1) + '"');
 				map.put("\"quantity\"", '"' + rs.getString(2) + '"');
 				map.put("\"date\"", '"' + rs.getString(3) + '"');
+				map.put("\"status\"", '"' + rs.getString(4) + '"');
 				list.add(map);
 			}
 			String json =list.toString().replaceAll("=", ":"); 
@@ -196,6 +198,7 @@ public class DB {
 				list.add(map);
 			}
 			String json =list.toString().replaceAll("=", ":"); 
+			st.close();
 			return json;
 		} catch (Exception e) {
 			System.out.println(e.toString());
@@ -231,6 +234,25 @@ public class DB {
 				query = "update all users set address = '%s' where phoneNo='%s'";
 				st.executeUpdate(query.formatted(address, phoneNo));
 			}
+			st.close();
+		} catch (Exception e) {
+			System.out.println(e.toString());
+		}
+	}
+	public void cartModifyQuantity(String phoneNo, String productID, String quantity) {
+		try {
+			Statement st = conn.createStatement();
+			String query = "update cart set quantity = '%s' where phoneno = '%s' and productid = '%s'";
+			st.executeUpdate(query.formatted(quantity, phoneNo, productID));
+		} catch (Exception e) {
+			System.out.println(e.toString());
+		}
+	}
+	public void orderAdd(String phoneNo, String productID, String quantity, String date, String status) {
+		try {
+			Statement st = conn.createStatement();
+			String query = "insert into orders values ('%s', '%s', '%s', '%s', '%s')";
+			st.executeUpdate(query.formatted(phoneNo, productID, quantity, date, status));
 		} catch (Exception e) {
 			System.out.println(e.toString());
 		}
